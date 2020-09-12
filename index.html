@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+    <style type="text/css">
+      *{
+        margin:0px;
+        padding: 0px;
+        font-family: 'Titillium Web', sans-serif;
+      }
+      .bodyMain{
+        width: 100vw;
+        height: 100vh;
+        background: #000;
+        display:  flex;
+        flex-direction: column; 
+        align-items:  center;
+        justify-content:  center;
+      }
+     .cardCenter{
+      padding: 24px;
+          display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+      
+     }
+     .cardCenter h1{
+      font-size:  24px;
+      color: #777;
+      padding-bottom: 12px;
+     }
+     
+     .cardCenter button{
+        padding: 8px;
+        border-radius: 4px;
+        border: none;
+        color: #fff;
+        background: #082642;
+        margin-bottom: 12px;
+        text-transform: uppercase;
+     }
+     
+     .cardCenter button.mRL12{
+        margin-left: 12px;
+     }
+     .cardCenter h1.counterNu{
+      font-size: 124px;
+      color: #fff;
+     }
+     .btns{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: row;
+     }
+    </style>
+  </head>
+
+  <body>
+    <div class="bodyMain">
+      <div class="cardCenter">
+        <h1>Press Button to Change Number</h1>
+        <h1 class="counterNu">0</h1>
+        <div class="btns">
+          <button class="buttonPress decreaseBtn">Decrease</button>
+          <button class="buttonPress mRL12 resetBtn">Reset</button> 
+          <button class="buttonPress mRL12 increaseBtn">Increase</button> 
+          
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript">
+      
+      const decreaseBtn = document.querySelector('.decreaseBtn');
+      const increaseBtn = document.querySelector('.increaseBtn');
+      const resetBtn = document.querySelector('.resetBtn');
+      const counterNu = document.querySelector('.counterNu')
+     increaseBtn.addEventListener('click',increaseFn);
+     decreaseBtn.addEventListener('click',decreaseFn);
+     resetBtn.addEventListener('click',resetFn);
+
+     let counter = 0;
+     function increaseFn(){
+      counter++
+      counterNu.innerHTML = counter
+      if(counter == 0){
+        counterNu.style.color = "#fff"
+      }
+      else if(counter>0){
+        counterNu.style.color = "green"
+      }
+      else{
+        counterNu.style.color = "red"
+      }
+      
+     }
+
+     function decreaseFn(){
+      counter--
+      counterNu.innerHTML = counter
+      if(counter == 0){
+        counterNu.style.color = "#fff"
+      }
+      else if(counter<0){
+        counterNu.style.color = "red"
+      }
+      else{
+        counterNu.style.color = "green"
+      }
+      
+     }
+
+     function resetFn(){
+      counter = 0;
+      counterNu.innerHTML = counter;
+      counterNu.style.color = "#fff"
+     }
+
+
+    </script>
+  </body>
+</html>
+
